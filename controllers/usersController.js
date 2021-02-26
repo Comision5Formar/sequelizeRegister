@@ -17,15 +17,11 @@ module.exports = {
             db.Usuarios.create({
                 name : nombre.trim(),
                 email,
-                pass : 
-
+                pass : bcrypt.hashSync(pass,12)
             })
+            .then(()=>res.redirect('/users/login'))
+            .catch(error => res.send(error))
             
-
-
-
-
-
         }else{
             return res.render('register',{
                 errores : errores.mapped(),
