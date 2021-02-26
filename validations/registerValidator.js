@@ -14,13 +14,16 @@ module.exports = [
     body('email').custom(value => {
 
         return db.Usuarios.findOne({
-            email : value
+            where : {
+                email : value
+            }
         })
         .then(user => {
             if(user){
                 return Promise.reject('Este email ya está registrado')
             }
         })
+
     }),
 
     check('pass')
