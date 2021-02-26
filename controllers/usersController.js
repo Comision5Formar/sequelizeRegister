@@ -1,5 +1,7 @@
-const {validationResult} = require('express-validator')
+const {validationResult} = require('express-validator');
 
+const db = require('../database/models');
+const bcrypt = require('bcrypt');
 
 module.exports = {
     register : (req,res) => {
@@ -9,7 +11,21 @@ module.exports = {
         let errores = validationResult(req);
 
         if(errores.isEmpty()){
-            res.send(req.body)
+            
+            const {nombre, email, pass} = req.body;
+
+            db.Usuarios.create({
+                name : nombre.trim(),
+                email,
+                pass : 
+
+            })
+            
+
+
+
+
+
         }else{
             return res.render('register',{
                 errores : errores.mapped(),
