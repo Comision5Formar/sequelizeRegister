@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <%- include('partials/head')  %> 
+  <body>
+    <%- include('partials/header')  %> 
+
+    <div class="container">
+      
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Titulo</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Premios</th>
+                <th scope="col">Duración</th>
+                <th scope="col">Genero</th>
+                <th scope="col">Operaciones</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% peliculas.forEach(pelicula => { %>
+                    <tr>
+                        <td><%= pelicula.title %> </td>
+                        <td><%= pelicula.rating %> </td>
+                        <td><%= pelicula.awards %> </td>
+                        <td><%= pelicula.length %> </td>
+                        <td><%= pelicula.genre.name %> </td>
+                        <td>
+                            <button class="btn btn-sm btn-success">Editar</button>
+                            <form action="/movies/remove/<%= pelicula.id %> " method="POST" id="delete<%= pelicula.id %>">
+                              <button type="submit" onclick="confirmRemove(event,document.getElementById('delete<%=pelicula.id%>'))" class="btn btn-sm btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                      </tr>
+                <% }) %>
+            </tbody>
+          </table>
+    </div>
+    <%- include('partials/footer')  %> 
+  </body>
+  </html>

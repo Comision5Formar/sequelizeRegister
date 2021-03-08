@@ -5,13 +5,26 @@
     <%- include('partials/header')  %> 
 
     <div class="container">
-      <h1>Sistema de registro con Sequelize</h1>
-      <h3>Comision 5</h3>
+      <div class="row">
+        <div class="col-12">
+          <h1>Full Movies 4</h1>
+        </div>
+        <% peliculas.forEach(pelicula => { %>
+         <div class="col-12 col-md-4 col-lg-3 my-3">
+          <div class="card" style="height: 420px;">
+            <img src="<%= pelicula.poster %> " class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="card-title"><%= pelicula.title %> </h5>
+              <p class="card-text"><%= pelicula.synopsis.length > 70 ? pelicula.synopsis.substr(0,70)+"..." : pelicula.synopsis %> </p>
+              <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+         </div>
+        <% }) %>
+      </div>
+
     </div>
  
-    
-    
-    
     <%- include('partials/footer')  %> 
 
   </body>

@@ -9,15 +9,19 @@
            
             <div class="col-md-6">
               <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" name="email" value="<%= (typeof old != "undefined" && old.email) ? old.email : null %>">
-              <span class="text-danger"><%= (typeof errores != 'undefined' && errores.email) ? errores.email.msg : null %> </span>
+              <input type="email" class="form-control" id="inputEmail4" name="email" value="<%= typeof old != 'undefined' && old.email ? old.email.msg : null %>">
+              <span class="text-danger"><%= typeof errores != "undefined" && errores.email ? errores.email.msg : null %> </span>
             </div>
             <div class="col-md-6">
               <label for="inputPassword4" class="form-label">Contraseña</label>
               <input type="password" class="form-control" id="inputPassword4" name="pass">
-              <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass) ? errores.pass.msg : null %> </span>
+              <span class="text-danger"><%= typeof errores != "undefined" && errores.pass ? errores.pass.msg : null %> </span>
             </div>
         
+            <div class="col-12">
+              <span class="text-danger"><%= typeof errores != "undefined" && errores.invalid ? errores.invalid.msg : null %> </span>
+
+            </div>
          
             <div class="col-12">
               <div class="form-check">
@@ -29,8 +33,6 @@
             </div>
             <div class="col-12">
               <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-              <br>
-              <span class="text-danger"><%= (typeof errores != 'undefined' && errores.invalid) ? errores.invalid.msg : null %> </span>
             </div>
           </form>
     </div>
