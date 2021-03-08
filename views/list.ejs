@@ -28,7 +28,7 @@
                         <td>
                             <button class="btn btn-sm btn-success">Editar</button>
                             <form action="/movies/remove/<%= pelicula.id %> " method="POST" id="delete<%= pelicula.id %>">
-                              <button type="submit" onclick="confirmRemove(event,document.getElementById('delete<%=pelicula.id%>'))" class="btn btn-sm btn-danger">Eliminar</button>
+                              <button type="submit" onclick="confirmRemove(event,document.querySelector('#delete<%=pelicula.id%>'))" class="btn btn-sm btn-danger">Eliminar</button>
                             </form>
                         </td>
                       </tr>
