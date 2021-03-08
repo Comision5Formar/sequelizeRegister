@@ -3,7 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "dropDB": "npx sequelize-cli db:drop",
+    "createDB": "npx sequelize-cli db:create",
+    "migrateDB": "npx sequelize-cli db:migrate",
+    "seedDB": "npx sequelize-cli db:seed:all",
+    "restartDB": "npm run dropDB && npm run createDB && npm run migrateDB && npm run seedDB"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
